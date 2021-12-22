@@ -1,0 +1,1 @@
+SELECT contact_name, address, phone FROM northwinds_rds_public.customers
