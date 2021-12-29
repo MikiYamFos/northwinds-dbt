@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: rds
+    database: fivetran_database
+    schema: northwinds_rds_public
+    freshness: 
+        warn_after: {count: 2, period: day}
+    loaded_at_field: _FIVETRAN_SYNCED
+    tables:
+      - name: suppliers
+      - name: customers
+
+
+    
