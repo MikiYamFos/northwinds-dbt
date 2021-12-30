@@ -1,7 +1,7 @@
 WITH source as (
     SELECT * FROM {{source('rds', 'customers')}}
 ),
-renamed as (
+companies as (
     SELECT 
     concat('rds-', replace(lower(company_name), ' ', '-')) as company_id,
     company_name,
@@ -21,4 +21,4 @@ renamed as (
     
 )
 
-SELECT * FROM renamed
+SELECT * FROM companies

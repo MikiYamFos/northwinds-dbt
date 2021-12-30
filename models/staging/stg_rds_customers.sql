@@ -1,5 +1,5 @@
 WITH source as (
-    SELECT * FROM {{source('rds', 'customers') }},
+    SELECT * FROM {{source('rds', 'customers') }}),
 
 renamed as (
 SELECT 
