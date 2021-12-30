@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: hubspot
+    database: labs_db
+    schema: hubspot
+    freshness: 
+        warn_after: {count: 2, period: day}
+    loaded_at_field: business_name
+    tables:
+      - name: contacts
+  
+
