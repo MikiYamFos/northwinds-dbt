@@ -1,5 +1,6 @@
 WITH source as (
-    SELECT * FROM {{source('hubspot', 'contacts')}}
+    SELECT *
+    FROM {{source('hubspot', 'contacts')}}
 ),
 renamed as (SELECT 
 CONCAT('hubspot-', HUBSPOT_ID) as CONTACT_ID,
