@@ -6,7 +6,7 @@ rds_company as (
 ),
 comp_joined as (
     SELECT company_id as hubspot_id, null as rds_id, business_name from hubspot_company union all
-    SELECT null as hubspot_id, company_id as rds_id, company_name as business_name from rds_company
+    SELECT null as hubspot_id, company_id as rds_id, business_name from rds_company
 ),
 deduped as (
     SELECT {{ dbt_utils.surrogate_key(['business_name']) }} as contact_pk,
