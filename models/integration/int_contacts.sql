@@ -21,9 +21,9 @@ rds_customers as (
 
 
 merged_contacts as (
-    SELECT contact_id as hubspot_id, null as rds_id, first_name, last_name, phone, business_name as hubspot_company_id, null as rds_company_id
+    SELECT contact_id as hubspot_id, null as rds_id, first_name, last_name, phone, CONCAT('hubspot-', (REPLACE(REPLACE(BUSINESS_NAME, ' ', '-'), ',', ''))) as hubspot_company_id, null as rds_company_id
     from hubspot_contacts union all
-    SELECT null as hubspot_id, contact_id as rds_id, first_name, last_name, phone, null as hubspot_company_id, business_name as rds_company_id
+    SELECT null as hubspot_id, contact_id as rds_id, first_name, last_name, phone, null as hubspot_company_id, CONCAT('rds-', (REPLACE(REPLACE(BUSINESS_NAME, ' ', '-'), ',', ''))) as rds_company_id
     from rds_customers
 ),
 deduped as (

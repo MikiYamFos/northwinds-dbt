@@ -4,7 +4,7 @@ WITH source as (
 companies as (
     SELECT 
     concat('rds-', replace(lower(company_name), ' ', '-')) as company_id,
-    company_name,
+    company_name as business_name,
     REPLACE(TRANSLATE(phone, '.,(, ), -', ''), ' ', '') as translphone,
     CASE WHEN len(translphone) = 10 THEN 
     concat('(', substr(translphone, 1, 3), ') ')
